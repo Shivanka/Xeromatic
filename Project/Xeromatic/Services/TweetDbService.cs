@@ -21,6 +21,12 @@ namespace Xeromatic.Services
         public void InsertTweet(Tweet tweet)
         {
             // TODO Hint: check out the Dapper docs online. https://github.com/StackExchange/dapper-dot-net
+
+            //connect to the database and then add data to it
+            using (var connection = new SqlConnection(_connectionString)) //whatever we do in these curly braces is using this
+                {
+                connection.Execute("INSERT INTO dbo.Tweet VALUES (@id, @Text)", tweet); //mapping, can't pin the same tweet or it will catch an exception. Can unpin using another sql query 
+                }
         }
     }
 }

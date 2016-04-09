@@ -30,7 +30,7 @@ namespace Xeromatic.Services
         public IEnumerable<Tweet> GetTweets()
         {
             var tweets = 
-                Auth.ExecuteOperationWithCredentials(_creds, () => Timeline.GetUserTimeline("xero", 10)).ToList();
+                Auth.ExecuteOperationWithCredentials(_creds, () => Timeline.GetUserTimeline("xero", 10)).ToList(); //xero refers to the twitter account name. Can change 
 
             if
                 (tweets.Any()) //if theres no tweets then we won't map anything
