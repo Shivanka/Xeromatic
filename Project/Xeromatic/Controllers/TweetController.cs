@@ -23,8 +23,18 @@ namespace Xeromatic.Controllers
         [Route("PinnedTweets")]
         public IEnumerable<Tweet> PinnedTweets()
         {
-            var tweets = _tweetDbService.GetTweets();
+            var tweets = _tweetDbService.GetTweets(); //returning all the tweets from your database
             return tweets;
+        }
+
+        // GET: /RecentTweets
+        //Returns tweets from the twitter api
+        [HttpGet]
+        [Route("RecentTweets")]
+        public IEnumerable<Tweet> RecentTweets()
+        {
+            var tweets = _twitterApiService.GetTweets();
+            return tweets; //returning list of IEnumerable of type Tweet
         }
     }
 }

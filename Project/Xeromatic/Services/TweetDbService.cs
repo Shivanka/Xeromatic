@@ -6,7 +6,7 @@ using Xeromatic.Models;
 
 namespace Xeromatic.Services
 {
-    public class TweetDbService
+    public class TweetDbService : ITwitterService //branching ITwitterService to the TweetDbService, not duplicating code
     {
         private readonly string _connectionString = ConfigurationManager.ConnectionStrings["tweetDB"].ConnectionString;
 
